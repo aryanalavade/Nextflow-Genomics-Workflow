@@ -1,7 +1,6 @@
 # Nextflow Genomics Workflow
 
-A minimal Nextflow DSL2 pipeline demonstrating **sequential + parallel** module
-execution on bacterial short-read data:
+A three-step Nextflow DSL2 pipeline for bacterial short-read data that chains quality control into two concurrently executing downstream modules:
 
 1. **`FASTP`** — adapter/quality trim of paired-end reads *(sequential upstream)*
 2. **`SPADES`** — de novo assembly from trimmed reads *(runs in parallel with Module 3)*
