@@ -84,9 +84,7 @@ From `results/pipeline_info/trace.txt` after a clean run:
 │       ├── test_R1.fastq.gz # Real E. coli reads, SRR2584863 (R1)
 │       └── test_R2.fastq.gz # Real E. coli reads, SRR2584863 (R2)
 ├── scripts/
-│   └── fetch_test_data.sh   # regenerate test data from ENA
-└── docs/
-    └── import.md            
+   └── fetch_test_data.sh   # regenerate test data from ENA          
 ```
 
 ## Conda Environments (pinned)
