@@ -86,7 +86,7 @@ From `results/pipeline_info/trace.txt` after a clean run:
 ├── scripts/
 │   └── fetch_test_data.sh   # regenerate test data from ENA
 └── docs/
-    └── import.md            # assignment brief
+    └── import.md            
 ```
 
 ## Conda Environments (pinned)
