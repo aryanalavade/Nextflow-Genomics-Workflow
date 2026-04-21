@@ -1,9 +1,9 @@
 #!/usr/bin/env nextflow
 nextflow.enable.dsl=2
 
-include { FASTP        } from './modules/fastp'
-include { SPADES       } from './modules/spades'
-include { SEQKIT_STATS } from './modules/seqkit'
+include { FASTP        } from './modules/local/fastp'
+include { SPADES       } from './modules/local/spades'
+include { SEQKIT_STATS } from './modules/local/seqkit'
 
 workflow {
     // Build input channel: (meta, [R1, R2])

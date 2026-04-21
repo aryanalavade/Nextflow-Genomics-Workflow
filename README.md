@@ -9,7 +9,7 @@ execution on bacterial short-read data:
 
 ## Workflow Diagram
 
-![Workflow](assets/workflow_diagram.png)
+![DAG](assets/dag.png)
 
 `FASTP.out.reads` is consumed independently by both `SPADES` and `SEQKIT_STATS`,
 so Nextflow schedules them concurrently (trace proof below).
@@ -28,7 +28,7 @@ Any Nextflow ≥ 24.04 should work. Conda must be installed before launch; modul
 ## Test Data
 
 - **Sample:** *Escherichia coli* K-12 MG1655 — SRA accession [`SRR2584863`](https://www.ncbi.nlm.nih.gov/sra/SRR2584863) (Illumina paired-end, 150 bp).
-- **Location:** `test_data/test_R1.fastq.gz` and `test_data/test_R2.fastq.gz` (~6 MB × 2, 50,000 reads per mate).
+- **Location:** `assets/data/test/test_R1.fastq.gz` and `assets/data/test/test_R2.fastq.gz` (~6 MB × 2, 50,000 reads per mate).
 - **Provenance:** Fetched from EBI ENA and subsampled via `scripts/fetch_test_data.sh`. Regenerate with `bash scripts/fetch_test_data.sh`.
 
 Not reused from any prior BIOL7210 homework.
@@ -74,18 +74,19 @@ From `results/pipeline_info/trace.txt` after a clean run:
 .
 ├── main.nf                  # workflow entry; wires channels
 ├── nextflow.config          # params, conda profile, test profile
-├── modules/
+├── modules/local/
 │   ├── fastp.nf
 │   ├── spades.nf
 │   └── seqkit.nf
-├── test_data/
-│   ├── test_R1.fastq.gz     # Real E. coli reads, SRR2584863 (R1)
-│   └── test_R2.fastq.gz     # Real E. coli reads, SRR2584863 (R2)
 ├── assets/
-│   ├── workflow_diagram.png # rendered workflow diagram (shown above)
-│   └── create_diagram.py    # script to regenerate diagram
-└── scripts/
-    └── fetch_test_data.sh   # regenerate test data from ENA
+│   ├── dag.png              # rendered workflow diagram (shown above)
+│   └── data/test/
+│       ├── test_R1.fastq.gz # Real E. coli reads, SRR2584863 (R1)
+│       └── test_R2.fastq.gz # Real E. coli reads, SRR2584863 (R2)
+├── scripts/
+│   └── fetch_test_data.sh   # regenerate test data from ENA
+└── docs/
+    └── import.md            # assignment brief
 ```
 
 ## Conda Environments (pinned)

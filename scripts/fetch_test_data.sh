@@ -3,7 +3,7 @@
 # and write them to test_data/test_R1.fastq.gz and test_data/test_R2.fastq.gz.
 set -euo pipefail
 
-OUTDIR="$(dirname "$0")/../test_data"
+OUTDIR="$(dirname "$0")/../assets/data/test"
 ENA_BASE="https://ftp.sra.ebi.ac.uk/vol1/fastq/SRR258/003/SRR2584863"
 READS=50000
 LINES=$(( READS * 4 ))
