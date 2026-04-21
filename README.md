@@ -43,7 +43,7 @@ conda create -n nf -c bioconda -c conda-forge nextflow=25.10.4 -y && conda activ
 nextflow run main.nf -profile conda,test
 ```
 
-Two copy-paste lines. First run creates conda environments (~few minutes); subsequent runs hit the cache. Typical end-to-end runtime on a laptop: **< 15 minutes** for the test dataset.
+Two copy-paste lines. First run creates conda environments (~few minutes); subsequent runs hit the cache. Typical end-to-end runtime on a laptop: **< 1 minutes** for the test dataset.
 
 Add `-resume` to any subsequent invocation to skip previously successful steps.
 
