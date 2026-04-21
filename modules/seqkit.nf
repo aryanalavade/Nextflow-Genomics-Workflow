@@ -8,7 +8,7 @@ process SEQKIT_STATS {
     tuple val(meta), path(reads)
 
     output:
-    path "${meta.id}_read_stats.tsv", emit: stats
+    path '*_read_stats.tsv', emit: stats
 
     script:
     def prefix = meta.id

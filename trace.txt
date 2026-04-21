@@ -1,0 +1,4 @@
+task_id	hash	native_id	name	status	exit	submit	duration	realtime	%cpu	peak_rss	peak_vmem	rchar	wchar
+1	ae/f375e9	20897	FASTP (test)	COMPLETED	0	2026-04-20 23:07:22.318	1.1s	1s	-	-	-	-	-
+2	b2/ec6933	20934	SEQKIT_STATS (test)	COMPLETED	0	2026-04-20 23:07:23.557	730ms	0ms	-	-	-	-	-
+3	7d/fc0641	20939	SPADES (test)	COMPLETED	0	2026-04-20 23:07:23.607	29.3s	28s	-	-	-	-	-

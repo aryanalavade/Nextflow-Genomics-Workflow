@@ -2,13 +2,13 @@ process SPADES {
     tag "${meta.id}"
     publishDir "${params.outdir}/spades/${meta.id}", mode: 'copy'
 
-    conda 'bioconda::spades=3.15.5'
+    conda 'bioconda::spades=4.0.0'
 
     input:
     tuple val(meta), path(reads)
 
     output:
-    tuple val(meta), path("${meta.id}_contigs.fasta"), emit: contigs
+    tuple val(meta), path('*_contigs.fasta'), emit: contigs
 
     script:
     def prefix   = meta.id

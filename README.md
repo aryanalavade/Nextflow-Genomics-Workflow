@@ -18,7 +18,7 @@ so Nextflow schedules them concurrently (trace proof below).
 
 | Component | Version used for testing |
 |---|---|
-| Nextflow | **24.10.5** |
+| Nextflow | **25.10.4** |
 | Conda | ≥ 24.1 (Miniconda or Miniforge) |
 | OS | macOS (Darwin 24.6.0) |
 | Architecture | arm64 (Apple Silicon) |
@@ -37,7 +37,7 @@ Not reused from any prior BIOL7210 homework.
 
 ```bash
 # 1. Create / activate the Nextflow runtime env (one-time)
-conda create -n nf -c bioconda nextflow=24.10.5 -y && conda activate nf
+conda create -n nf -c bioconda -c conda-forge nextflow=25.10.4 -y && conda activate nf
 
 # 2. Run the workflow with the bundled test data
 nextflow run main.nf -profile conda,test
@@ -62,11 +62,11 @@ From `results/pipeline_info/trace.txt` after a clean run:
 
 | task | submit (HH:MM:SS.ms) | duration |
 |---|---|---|
-| FASTP | 22:41:31.970 | 845 ms |
-| SPADES | 22:41:32.839 | 4.8 s |
-| SEQKIT_STATS | 22:41:32.843 | 617 ms |
+| FASTP | 23:07:22.318 | 1.1 s |
+| SEQKIT_STATS | 23:07:23.557 | 730 ms |
+| SPADES | 23:07:23.607 | 29.3 s |
 
-`SPADES` and `SEQKIT_STATS` were submitted within milliseconds of each other, both immediately after `FASTP` completed — they ran concurrently on the local executor.
+`SEQKIT_STATS` and `SPADES` were submitted 50 ms apart, both immediately after `FASTP` completed — they ran concurrently on the local executor.
 
 ## Repo Layout
 
@@ -91,5 +91,5 @@ From `results/pipeline_info/trace.txt` after a clean run:
 ## Conda Environments (pinned)
 
 - `bioconda::fastp=0.23.4`
-- `bioconda::spades=3.15.5`
+- `bioconda::spades=4.0.0`
 - `bioconda::seqkit=2.8.2`

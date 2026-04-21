@@ -8,10 +8,9 @@ process FASTP {
     tuple val(meta), path(reads)
 
     output:
-    tuple val(meta), path(["${meta.id}_trimmed_R1.fastq.gz",
-                            "${meta.id}_trimmed_R2.fastq.gz"]), emit: reads
-    path "${meta.id}_fastp.json", emit: json
-    path "${meta.id}_fastp.html", emit: html
+    tuple val(meta), path('*_trimmed_R?.fastq.gz'), emit: reads
+    path '*.json',                                  emit: json
+    path '*.html',                                  emit: html
 
     script:
     def prefix = meta.id
