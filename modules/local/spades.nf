@@ -8,11 +8,12 @@ process SPADES {
     tuple val(meta), path(reads)
 
     output:
-    tuple val(meta), path('*_contigs.fasta'), emit: contigs
+    tuple val(meta), path('*.fasta'), emit: contigs
+    path 'spades.log',                emit: log
 
     script:
-    def prefix   = meta.id
-    def mem_gb   = task.memory ? task.memory.toGiga() : 4
+    def prefix = meta.id
+    def mem_gb = task.memory ? task.memory.toGiga() : 4
     """
     spades.py \\
         -1 ${reads[0]} \\
@@ -21,6 +22,8 @@ process SPADES {
         --threads ${task.cpus} \\
         --memory ${mem_gb}
 
-    cp spades_out/contigs.fasta ${prefix}_contigs.fasta
+    cp spades_out/contigs.fasta contigs.fasta
+    cp spades_out/scaffolds.fasta scaffolds.fasta
+    cp spades_out/spades.log spades.log
     """
 }

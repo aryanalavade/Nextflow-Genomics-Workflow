@@ -1,6 +1,6 @@
 process SEQKIT_STATS {
     tag "${meta.id}"
-    publishDir "${params.outdir}/seqkit/${meta.id}", mode: 'copy'
+    publishDir "${params.outdir}/seqkit", mode: 'copy'
 
     conda 'bioconda::seqkit=2.8.2'
 
@@ -8,11 +8,11 @@ process SEQKIT_STATS {
     tuple val(meta), path(reads)
 
     output:
-    path '*_read_stats.tsv', emit: stats
+    path '*.seqkit.stats.tsv', emit: stats
 
     script:
     def prefix = meta.id
     """
-    seqkit stats -a ${reads} > ${prefix}_read_stats.tsv
+    seqkit stats -a ${reads} > ${prefix}.seqkit.stats.tsv
     """
 }

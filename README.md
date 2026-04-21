@@ -51,9 +51,10 @@ Add `-resume` to any subsequent invocation to skip previously successful steps.
 
 ```
 results/
-├── fastp/test/     test_trimmed_R1.fastq.gz, test_trimmed_R2.fastq.gz, test_fastp.{json,html}
-├── spades/test/    test_contigs.fasta
-└── seqkit/test/    test_read_stats.tsv
+├── fastp/          test.fastp.{json,html}, test_R{1,2}.trim.fastq.gz
+├── spades/test/    contigs.fasta, scaffolds.fasta, spades.log
+├── seqkit/         test.seqkit.stats.tsv
+└── pipeline_info/  dag.png, report.html, timeline.html, trace.txt
 ```
 
 ## Proof of Parallel Execution
