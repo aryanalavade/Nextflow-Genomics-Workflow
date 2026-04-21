@@ -52,15 +52,15 @@ Each module installs its own conda environment automatically:
 
 ## Test Data
 
-Small synthetic paired-end FASTQ files are included in `test_data/`:
+Real paired-end Illumina FASTQ files are included in `test_data/`:
 
 ```
 test_data/
-├── test_R1.fastq.gz   # 5,000 reads × 150 bp (R1)
-└── test_R2.fastq.gz   # 5,000 reads × 150 bp (R2)
+├── test_R1.fastq.gz   # 50,000 reads × 150 bp (R1)
+└── test_R2.fastq.gz   # 50,000 reads × 150 bp (R2)
 ```
 
-Reads were generated from a synthetic 20 kb genome with 350 bp insert size (~37× coverage) using `test_data/generate_test_data.py`. These are **not** from any previous course exercise.
+Reads are a 50,000-read subset of NCBI SRA accession **SRR2584863** — *Escherichia coli* K-12 MG1655 evolved strain (Lenski long-term evolution experiment), Illumina HiSeq 2500, 150 bp paired-end. Downloaded from the EBI/ENA mirror.
 
 ---
 
@@ -116,9 +116,8 @@ results/
 │   ├── spades.nf              # Module 2 — de novo assembly
 │   └── seqkit.nf              # Module 3 — read statistics
 ├── test_data/
-│   ├── test_R1.fastq.gz       # Synthetic test reads (R1)
-│   ├── test_R2.fastq.gz       # Synthetic test reads (R2)
-│   └── generate_test_data.py  # Script used to create test reads
+│   ├── test_R1.fastq.gz       # Real E. coli reads, SRR2584863 (R1)
+│   └── test_R2.fastq.gz       # Real E. coli reads, SRR2584863 (R2)
 └── assets/
     ├── workflow_diagram.png   # Workflow illustration
     └── create_diagram.py      # Script used to generate diagram
